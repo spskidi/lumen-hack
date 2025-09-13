@@ -1,0 +1,68 @@
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 220px;
+  background-color: #4338ca;
+  color: #fff;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 12px 15px;
+  margin: 8px 0;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Hover effect */
+.menu li:hover {
+  background-color: #ffffff;
+  color: #2c2f33;
+}
+
+/* Active sidebar item */
+.menu li.active {
+  background-color: #ffffff;
+  color: #2c2f33;
+  font-weight: bold;
+}
+
+/* Right Panel styling */
+.rightPanel {
+  flex: 1;
+  padding: 20px;
+  transition: background-color 0.3s;
+}
+
+/* Dynamic background based on activePage */
+.dashboard {
+  background-color: #ffffff;
+}
+
+.addPlan {
+  background-color: #ffffff;
+}
+
+.editPlan {
+  background-color: #ffffff;
+}
+
+.deletePlan {
+  background-color: #ffffff;
+}
