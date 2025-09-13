@@ -1,0 +1,28 @@
+{
+  "plans": [
+    {
+      "id": 1,
+      "planType": "Premium",
+      "planName": "Premium Plan",
+      "price": 49.99,
+      "duration": "12 months",
+      "description": "Access to all premium features"
+    },
+    {
+      "id": 2,
+      "planType": "Standard",
+      "planName": "Standard Plan",
+      "price": 29.99,
+      "duration": "6 months",
+      "description": "Access to standard features"
+    },
+    {
+      "id": 3,
+      "planType": "Static",
+      "planName": "Static Plan",
+      "price": 9.99,
+      "duration": "1 month",
+      "description": "Basic plan with limited access"
+    }
+  ]
+}
