@@ -5,47 +5,102 @@ import { Button } from '../ui/Button';
 
 const plans = [
   {
-    name: 'Starter',
+    name: 'Free',
     price: { monthly: 0, yearly: 0 },
-    description: 'Perfect for individuals just getting started',
+    description: 'Ideal for trying out basic features',
     features: [
-      'Track up to 5 subscriptions',
+      'Track up to 3 subscriptions',
       'Basic analytics',
       'Email support',
-      'Web & mobile access'
+      'Web access only',
+      'Limited history (30 days)'
     ],
     featured: false,
     cta: 'Get Started',
   },
   {
+    name: 'Basic',
+    price: { monthly: 4.99, yearly: 3.99 },
+    description: 'Perfect for individuals',
+    features: [
+      'Track up to 10 subscriptions',
+      'Basic analytics',
+      'Email support',
+      'Web & mobile access',
+      '1 year history',
+      'Basic reports'
+    ],
+    featured: false,
+    cta: 'Start Free Trial',
+  },
+  {
     name: 'Pro',
-    price: { monthly: 9, yearly: 7 },
+    price: { monthly: 9.99, yearly: 7.99 },
     description: 'Ideal for power users and small teams',
     features: [
       'Unlimited subscriptions',
       'Advanced analytics',
       'Priority support',
       'Export data',
-      'Team members (up to 5)'
+      'Team members (up to 5)',
+      'Unlimited history',
+      'Custom categories',
+      'Email reports'
     ],
     featured: true,
     cta: 'Start Free Trial',
   },
   {
-    name: 'Enterprise',
-    price: { monthly: 29, yearly: 24 },
-    description: 'For businesses with advanced needs',
+    name: 'Business',
+    price: { monthly: 19.99, yearly: 15.99 },
+    description: 'For growing teams and businesses',
     features: [
       'Everything in Pro',
+      'Team workspace',
+      'Team members (up to 15)',
+      'Dedicated support',
+      'Custom integrations',
+      'Advanced reporting',
+      'API access',
+      'SSO integration'
+    ],
+    featured: false,
+    cta: 'Start Free Trial',
+  },
+  {
+    name: 'Enterprise',
+    price: { monthly: 49.99, yearly: 39.99 },
+    description: 'For large organizations',
+    features: [
+      'Everything in Business',
       'Unlimited team members',
       'Dedicated account manager',
-      'Custom integrations',
-      'SLA & priority support',
-      'API access'
+      'Custom SLAs',
+      'On-premise deployment',
+      'Custom development',
+      'Security audit',
+      '24/7 priority support'
     ],
     featured: false,
     cta: 'Contact Sales',
   },
+  {
+    name: 'Agency',
+    price: { monthly: 99.99, yearly: 899.99 },
+    description: 'For agencies managing multiple clients',
+    features: [
+      'Everything in Enterprise',
+      'Client management dashboard',
+      'White-label reports',
+      'Bulk operations',
+      'Custom integrations',
+      'Dedicated infrastructure',
+      'Training & onboarding',
+      'Custom contract terms'
+    ],
+    featured: false,
+    cta: 'Contact Sales',
+  }
 ];
 
 const PricingCard = ({ plan, isYearly, index }) => {

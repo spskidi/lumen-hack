@@ -8,46 +8,111 @@ const pricing = {
       name: 'Free',
       href: '#',
       priceMonthly: 0,
-      description: 'Perfect for tracking a few subscriptions',
+      priceYearly: 0,
+      description: 'Ideal for trying out basic features',
       features: [
-        'Track up to 5 subscriptions',
+        'Track up to 3 subscriptions',
         'Basic analytics',
         'Email support',
         'Web access only',
+        'Limited history (30 days)'
       ],
-      cta: 'Get started',
+      cta: 'Get Started',
+      popular: false,
+    },
+    {
+      name: 'Basic',
+      href: '#',
+      priceMonthly: 4.99,
+      priceYearly: 3.99,
+      description: 'Perfect for individuals',
+      features: [
+        'Track up to 10 subscriptions',
+        'Basic analytics',
+        'Email support',
+        'Web & mobile access',
+        '1 year history',
+        'Basic reports'
+      ],
+      cta: 'Start Free Trial',
       popular: false,
     },
     {
       name: 'Pro',
       href: '#',
-      priceMonthly: 9,
-      description: 'For power users who want more control',
+      priceMonthly: 9.99,
+      priceYearly: 7.99,
+      description: 'Ideal for power users and small teams',
       features: [
         'Unlimited subscriptions',
         'Advanced analytics',
         'Priority support',
-        'Mobile app access',
-        'Email reports',
+        'Export data',
+        'Team members (up to 5)',
+        'Unlimited history',
+        'Custom categories',
+        'Email reports'
       ],
-      cta: 'Start free trial',
+      cta: 'Start Free Trial',
       popular: true,
+    },
+    {
+      name: 'Business',
+      href: '#',
+      priceMonthly: 19.99,
+      priceYearly: 15.99,
+      description: 'For growing teams and businesses',
+      features: [
+        'Everything in Pro',
+        'Team workspace',
+        'Team members (up to 15)',
+        'Dedicated support',
+        'Custom integrations',
+        'Advanced reporting',
+        'API access',
+        'SSO integration'
+      ],
+      cta: 'Start Free Trial',
+      popular: false,
     },
     {
       name: 'Enterprise',
       href: '#',
-      priceMonthly: 29,
-      description: 'For teams and businesses',
+      priceMonthly: 49.99,
+      priceYearly: 39.99,
+      description: 'For large organizations',
       features: [
-        'Everything in Pro, plus:',
-        'Team members',
-        'Shared subscriptions',
-        'Custom reporting',
+        'Everything in Business',
+        'Unlimited team members',
         'Dedicated account manager',
+        'Custom SLAs',
+        'On-premise deployment',
+        'Custom development',
+        'Security audit',
+        '24/7 priority support'
       ],
-      cta: 'Contact sales',
+      cta: 'Contact Sales',
       popular: false,
     },
+    {
+      name: 'Agency',
+      href: '#',
+      priceMonthly: 99.99,
+      priceYearly: 899.99,
+      description: 'For agencies managing multiple clients',
+      features: [
+        'Everything in Enterprise',
+        'Client management dashboard',
+        'White-label reports',
+        'Bulk operations',
+        'Custom integrations',
+        'Dedicated infrastructure',
+        'Training & onboarding',
+        'Custom contract terms'
+      ],
+      cta: 'Contact Sales',
+      popular: false,
+    }
   ],
 };
 
@@ -87,7 +152,7 @@ const Pricing: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-12 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
+          <div className="mt-12 space-y-12 lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-8 lg:space-y-0">
           {pricing.tiers.map((tier, index) => (
             <motion.div
               key={tier.name}
@@ -111,10 +176,15 @@ const Pricing: React.FC = () => {
                 <p className="mt-4 text-gray-500">{tier.description}</p>
                 <p className="mt-6">
                   <span className="text-4xl font-extrabold text-gray-900">
-                    ${isAnnual ? Math.floor(tier.priceMonthly * 12 * 0.8) : tier.priceMonthly}
+                    ${isAnnual ? tier.priceYearly * 12 : tier.priceMonthly}
                   </span>
                   <span className="text-base font-medium text-gray-500">
                     {isAnnual ? '/year' : '/month'}
+                    {isAnnual && tier.priceYearly < tier.priceMonthly * 10 && (
+                      <span className="block text-sm text-green-500 mt-1">
+                        Save {Math.round((1 - (tier.priceYearly * 12) / (tier.priceMonthly * 12)) * 100)}% annually
+                      </span>
+                    )}
                   </span>
                 </p>
                 <ul className="mt-6 space-y-4">
